@@ -5,7 +5,7 @@ export default function Cat() {
     const callImg=()=>{
         fetch("https://api.thecatapi.com/v1/images/search")
         .then(res=>res.json())
-        .then(data=>console.log(data))
+        .then(data=>setImgUrl(data[0].url))
     }
    
 
@@ -13,7 +13,7 @@ export default function Cat() {
     <div className='container'>
         <div className='box'>
             <h2>Enjoy the kittie</h2>
-            <img src="https://www.zaytung.com/fotos/yeni_baslayanlar_icin_kedi_3.jpg"/>
+            <img src={imgUrl}/>
             <button onClick={()=> callImg()}>Click Me</button>
         </div>
     </div>
